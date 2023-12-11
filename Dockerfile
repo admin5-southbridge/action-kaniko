@@ -1,5 +1,7 @@
 FROM alpine:3.18 as certs
 
+RUN apk add wget --no-cache
+
 RUN apk --update add ca-certificates
 
 FROM gcr.io/kaniko-project/executor:v1.9.1-debug
