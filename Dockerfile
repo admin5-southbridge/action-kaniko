@@ -1,13 +1,11 @@
 FROM alpine:3.18 as certs
 
-RUN apk add wget bash --no-cache
-
 RUN apk --update add ca-certificates
 
 FROM gcr.io/kaniko-project/executor:v1.9.1-debug
 
-SHELL ["/bin/bash", "-c"]
-
+SHELL ["/busybox/sh", "-c"]
+COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 RUN wget -O /kaniko/jq \
     https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && \
     chmod +x /kaniko/jq && \
