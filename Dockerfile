@@ -1,4 +1,4 @@
-FROM alpine:3.18 as certs
+FROM alpine:3.19 as certs
 
 RUN apk --update add wget ca-certificates --no-cache
 RUN mkdir /kaniko && wget -O /kaniko/jq \
