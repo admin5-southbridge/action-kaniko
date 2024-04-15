@@ -2,8 +2,6 @@ FROM alpine:3.19 as certs
 
 RUN apk --update add wget ca-certificates --no-cache
 RUN mkdir /kaniko
-COPY files/* /kaniko/
-RUN chmod 755 /kaniko/jq /kaniko/reg /kaniko/crane
 
 FROM gcr.io/kaniko-project/executor:v1.9.1-debug
 
@@ -11,6 +9,7 @@ SHELL ["/busybox/sh", "-c"]
 COPY --from=certs /kaniko/* /kaniko/
 COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY entrypoint.sh /
+COPY files/crane files/jq files/reg /kaniko/
 
 ENTRYPOINT ["/entrypoint.sh"]
 
