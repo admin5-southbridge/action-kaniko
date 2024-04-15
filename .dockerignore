@@ -1,3 +1,6 @@
 *
 !entrypoint.sh
+!files/crane
+!files/jq
+!files/reg
 .env*
