@@ -1,4 +1,4 @@
-FROM alpine:3.19 as certs
+FROM mirror.gcr.io/library/alpine:3.19 as certs
 
 RUN apk --update add wget ca-certificates --no-cache
 
