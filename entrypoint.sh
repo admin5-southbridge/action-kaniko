@@ -58,7 +58,7 @@ else
     fi
 fi
 
-export CACHE=${INPUT_CACHE:+"--cache=false"}
+export CACHE=${INPUT_CACHE:+"--cache=true"}
 export CACHE=$CACHE${INPUT_CACHE_TTL:+" --cache-ttl=$INPUT_CACHE_TTL"}
 export CACHE=$CACHE${INPUT_CACHE_REGISTRY:+" --cache-repo=$INPUT_CACHE_REGISTRY"}
 export CACHE=$CACHE${INPUT_CACHE_DIRECTORY:+" --cache-dir=$INPUT_CACHE_DIRECTORY"}
