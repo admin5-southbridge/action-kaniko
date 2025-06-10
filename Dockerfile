@@ -1,6 +1,6 @@
 FROM mirror.gcr.io/library/alpine:3.19 as certs
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories && apk add wget ca-certificates --no-cache
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories && apk add wget ca-certificates --no-cache
 
 FROM gcr.io/kaniko-project/executor:v1.9.1-debug
 
