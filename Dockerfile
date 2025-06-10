@@ -1,6 +1,6 @@
 FROM mirror.gcr.io/library/alpine:3.19 as certs
 
-RUN apk --update add wget ca-certificates --no-cache
+RUN apk add wget ca-certificates --no-cache
 
 FROM gcr.io/kaniko-project/executor:v1.9.1-debug
 
